@@ -1,0 +1,24 @@
+package org.firstinspires.ftc.teamcode.core.lib;
+
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+public abstract class Robot {
+    RobotConstants selfConstants;
+    public Robot(RobotConstants setRobotConstants){
+        selfConstants = setRobotConstants;
+    }
+    public void Init(HardwareMap hardwareMap, Telemetry telemetry){
+        for (SubSystemGroup subSystemGroup : RobotConstants.SUBSYSTEM_GROUP_LIST){
+            subSystemGroup.InitSubsystems(hardwareMap, telemetry);
+        }
+    }
+    public void Periodic(){
+        for (SubSystemGroup subSystemGroup : RobotConstants.SUBSYSTEM_GROUP_LIST){
+            subSystemGroup.Periodic();
+        }
+    }
+    public void SetAutonomousMode(){}
+    public void SetTeleOpMode(){}
+}
