@@ -4,18 +4,20 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+import java.util.ArrayList;
+
 public abstract class Robot {
-    RobotConstants selfConstants;
-    public Robot(RobotConstants setRobotConstants){
-        selfConstants = setRobotConstants;
+    SubSystemGroup[] subSystemGroups;
+    public Robot(SubSystemGroup[] setSubSystemGroups){
+        subSystemGroups = setSubSystemGroups;
     }
     public void Init(HardwareMap hardwareMap, Telemetry telemetry){
-        for (SubSystemGroup subSystemGroup : RobotConstants.SUBSYSTEM_GROUP_LIST){
+        for (SubSystemGroup subSystemGroup : subSystemGroups){
             subSystemGroup.InitSubsystems(hardwareMap, telemetry);
         }
     }
     public void Periodic(){
-        for (SubSystemGroup subSystemGroup : RobotConstants.SUBSYSTEM_GROUP_LIST){
+        for (SubSystemGroup subSystemGroup : subSystemGroups){
             subSystemGroup.Periodic();
         }
     }
