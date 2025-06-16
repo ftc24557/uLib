@@ -25,10 +25,13 @@ public abstract class SubSystemGroup {
             subsystem.Init(hardwareMap, telemetry);
         }
     }
-    public void Periodic(){
+    public abstract void GroupPeriodic(Telemetry telemetry);
+
+    public void Periodic(Telemetry telemetry){
         for (Subsystem subsystem : subsystems){
             subsystem.Periodic();
         }
+        GroupPeriodic(telemetry);
     }
 
 

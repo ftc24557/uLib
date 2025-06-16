@@ -16,9 +16,9 @@ public abstract class Robot {
             subSystemGroup.InitSubsystems(hardwareMap, telemetry);
         }
     }
-    public void Periodic(){
+    public void Periodic(Telemetry telemetry){
         for (SubSystemGroup subSystemGroup : subSystemGroups){
-            subSystemGroup.Periodic();
+            subSystemGroup.Periodic(telemetry);
         }
     }
     public void SetAutonomousMode(){}

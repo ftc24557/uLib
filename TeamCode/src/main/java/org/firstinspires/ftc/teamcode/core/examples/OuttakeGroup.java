@@ -35,4 +35,7 @@ public class OuttakeGroup extends SubSystemGroup {
     }
 
 
+    @Override
+    public void GroupPeriodic(Telemetry telemetry) {
+    }
 }
