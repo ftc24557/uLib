@@ -10,7 +10,7 @@ public class ClawOuttake extends Subsystem {
     Servo servo;
     @Override
     public void Init(HardwareMap hardwareMap, Telemetry telemetry) {
-        servo = hardwareMap.get(Servo.class, "servofodao");
+        servo = hardwareMap.get(Servo.class, "");
     }
 
     public void Close(){
